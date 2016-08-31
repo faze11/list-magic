@@ -1,0 +1,6 @@
+.vs
+.git
+bin/Debug/**
+bin/Release/**
+obj/Debug/**
+obj/Release/**
