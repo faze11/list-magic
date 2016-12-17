@@ -674,7 +674,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmMain";
-            this.Text = "ListMagic";
+            this.Text = "List Magic";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.tabControl.ResumeLayout(false);
             this.tabDupes.ResumeLayout(false);

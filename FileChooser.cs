@@ -15,7 +15,6 @@ namespace ListMagic
 
         public static string Load(string Filters = null, string StartDir = null, string Caption = null)
         {
-
             openFile.FileName = null;
 
             if (Filters != null)

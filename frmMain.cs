@@ -571,14 +571,29 @@ namespace ListMagic
         // ========================================================
         private void cndSettingsInstallContext_Click(object sender, EventArgs e)
         {
-            if (!InstallContextMenuItems())
-                MessageBox.Show("Error creating context menu entry", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+            try
+            {
+                if (!InstallContextMenuItems())
+                    MessageBox.Show("Error creating context menu entry", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (System.Security.SecurityException ex)
+            {
+                // need admin rights
+                MessageBox.Show("Error: Could not create context menu entry, need Administrator privileges.  Launch the app as Administrator and try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void cndSettingsUnInstallContext_Click(object sender, EventArgs e)
         {
-            if (!UnInstallContextMenuItems())
-                MessageBox.Show("Error creating context menu entry", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            try
+            {
+                if (!UnInstallContextMenuItems())
+                    MessageBox.Show("Error creating context menu entry", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (System.Security.SecurityException ex)
+            {
+                // need admin rights
+                MessageBox.Show("Error: Could not create context menu entry, need Administrator privileges.  Launch the app as Administrator and try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
@@ -683,6 +698,11 @@ namespace ListMagic
 
                 return true;
             }
+            catch (System.Security.SecurityException sex)
+            {
+                // need admin rights
+                throw sex;
+            }
             catch (Exception ex)
             {
                 return false;
@@ -711,6 +731,11 @@ namespace ListMagic
 
                 //if (errors) return false;
                 return true;
+            }
+            catch (System.Security.SecurityException sex)
+            {
+                // need admin rights
+                throw sex;
             }
             catch (Exception ex)
             {

@@ -26,6 +26,11 @@ namespace ListMagic
 
                 return true;
             }
+            catch (System.Security.SecurityException sex)
+            {
+                // need admin rights
+                throw sex;
+            }
             catch (Exception ex)
             {
                 return false;
